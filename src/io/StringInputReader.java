@@ -1,13 +1,13 @@
-package Day2;
+package io;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class InputReader {
+public class StringInputReader {
 
-    public ArrayList<String> readInputFile(String location) throws IOException {
+    public static ArrayList<String> readInputFile(String location) throws IOException {
         ArrayList<String> output = new ArrayList<String>();
 
         BufferedReader br = new BufferedReader(new FileReader(location));

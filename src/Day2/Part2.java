@@ -2,11 +2,12 @@ package Day2;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import io.StringInputReader;
 
 public class Part2 {
 
     public static void main(String[] args) {
-        InputReader reader = new InputReader();
+        StringInputReader reader = new StringInputReader();
         ArrayList<String> input = null;
 
         try {
