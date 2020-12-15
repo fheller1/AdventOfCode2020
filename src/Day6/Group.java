@@ -15,6 +15,11 @@ public class Group {
         this.members = members;
         this.answers = answers;
     }
+    public int questionsYes() {
+        StringBuffer sb = new StringBuffer();
+        for(String a : answers) sb.append(a);
+        return (int)sb.toString().chars().distinct().count();
+    }
     public int questionsEveryoneYes() {
         int output = 0;
         for(char c = 'a'; c <= 'z'; c++) {
@@ -30,18 +35,6 @@ public class Group {
         members++;
         answers.add(answer);
         return this;
-    }
-    public ArrayList<String> getAnswers() {
-        return answers;
-    }
-    public void setAnswers(ArrayList<String> answers) {
-        this.answers = answers;
-    }
-    public int getMembers() {
-        return members;
-    }
-    public void setMembers(int members) {
-        this.members = members;
     }
 
 }
