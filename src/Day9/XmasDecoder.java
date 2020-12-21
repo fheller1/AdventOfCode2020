@@ -4,6 +4,8 @@ import io.LongInputReader;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class XmasDecoder {
 
@@ -18,19 +20,18 @@ public class XmasDecoder {
         }
     }
 
-    public int findFirstNumberNotSum() {
+    public long findFirstNumberNotSum() {
         for(int i=25; i<data.size(); i++) {
-            if(!isSum(i)) return i;
+            if(!isSum(i)) return data.get(i);
         }
         return -1;
     }
     public boolean isSum(int index) {
-        ArrayList<Long> prev25 = new ArrayList<Long>(data.subList(index-25, index-1));
-        for(Long i : prev25) {
-            for(Long j : prev25) {
-                if (i.equals(j)) continue;
-                if(i+j == data.get(index)) return true;
-            }
+        HashSet<Long> numbers = new HashSet<Long>();
+        for(int i=index-25; i<index; i++) numbers.add(data.get(i));
+
+        for(int i=index-25; i<index; i++) {
+            if(numbers.contains(data.get(index)-data.get(i))) return true;
         }
         return false;
     }
