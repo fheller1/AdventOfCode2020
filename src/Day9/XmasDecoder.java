@@ -35,4 +35,21 @@ public class XmasDecoder {
         }
         return false;
     }
+    public long findEncryptionWeakness() {
+        long invalidNumber = findFirstNumberNotSum();
+        for(int i=0; i<data.size(); i++) {
+            long sum = 0;
+            int j = i-1;
+            long smallest = data.get(i);
+            long largest = data.get(i);
+            while(sum<invalidNumber) {
+                j++;
+                sum+=data.get(j);
+                if(data.get(j)<smallest) smallest = data.get(j);
+                if(data.get(j)>largest) largest = data.get(j);
+            }
+            if(sum==invalidNumber) return smallest+largest;
+        }
+        return -1;
+    }
 }
